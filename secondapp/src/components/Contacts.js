@@ -25,6 +25,10 @@ class Contacts extends Component {
     ]
   };
 
+  deleteContact = () => {
+    console.log(123)
+  }
+
   render() {
     //destructuring
     const { contacts } = this.state;
@@ -32,7 +36,8 @@ class Contacts extends Component {
     return (
       <div>
         {contacts.map(contact => (
-          <Contact key={contact.id} contact={contact} />
+          <Contact key={contact.id} contact={contact} deleteClickHandler={this.deleteContact}
+          />
         ))}
       </div>
     );
