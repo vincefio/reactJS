@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Contact from './Contact';
-import { Consumer } from '../context'
+import { Consumer } from '../../context'
 
 export default class Contacts extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ export default class Contacts extends Component {
                         <React.Fragment>
 
                             {contacts.map(contact =>
-                                <Contact name={contact.name} email={contact.email} id={contact.id} />
+                                <Contact name={contact.name} email={contact.email} id={contact.id} key={contact.id} />
 
                             )}
                         </React.Fragment>

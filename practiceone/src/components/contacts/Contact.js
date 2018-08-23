@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Card } from 'react-materialize'
-import { Consumer } from '../context'
+import { Consumer } from '../../context'
 
 
 export default class Contact extends Component {
@@ -33,7 +33,7 @@ export default class Contact extends Component {
                                     {showContactInfo ? (<div><h3>{this.props.name}</h3>
                                         <h3>{this.props.email}</h3> </div>) : null}
                                     <i onClick={this.onShowClick.bind(this)} className="fas fa-sort-down" />
-                                    <i class="fas fa-times" onClick={this.onDeleteClick.bind(this, id, dispatch)} style={{ cursor: 'pointer', float: 'right' }} />
+                                    <i className="fas fa-times" onClick={this.onDeleteClick.bind(this, id, dispatch)} style={{ cursor: 'pointer', float: 'right' }} />
                                 </Card>
                             </Col>
 
