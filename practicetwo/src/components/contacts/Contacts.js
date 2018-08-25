@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Contact from './Contact'
 
 export default class Contacts extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             contacts: [
 
@@ -33,10 +33,13 @@ export default class Contacts extends Component {
 
     render() {
         const { contacts } = this.state;
-        console.log('triggered')
+        //console.log('triggered')
         return (
             <div>
-                <Contact name={contacts.name} email={contacts.email} />
+                <Contact name='vince' email='testemail@gmail.com' />
+                {contacts.map(contact => (
+                    <Contact name={contact.name} email={contact.email} phone={contact.phone} />
+                ))}
             </div>
         )
     }
