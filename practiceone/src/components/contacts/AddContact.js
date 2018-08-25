@@ -26,7 +26,14 @@ class AddContact extends Component {
             phone
         };
 
-        dispatch({ type: 'ADD_CONTACT', payload: newContact })
+        dispatch({ type: 'ADD_CONTACT', payload: newContact });
+
+        //clear out the form
+        this.setState({
+            name: '',
+            email: '',
+            phone: ''
+        })
     }
 
     render() {
