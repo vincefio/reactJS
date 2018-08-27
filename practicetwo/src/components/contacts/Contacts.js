@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Contact from './Contact'
+import Addcontact from './Addcontact'
 
 export default class Contacts extends Component {
     constructor() {
@@ -50,6 +51,8 @@ export default class Contacts extends Component {
                 {contacts.map((contact, i) => (
                     <Contact key={i} name={contact.name} email={contact.email} phone={contact.phone} deleteClickHandler={this.deleteContact.bind(this, contact.id)} />
                 ))}
+
+
             </div>
         )
     }

@@ -17,7 +17,7 @@ export default class Addcontact extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({ firstName: e.target.value })
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     render() {
