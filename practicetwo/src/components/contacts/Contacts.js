@@ -31,14 +31,24 @@ export default class Contacts extends Component {
 
     }
 
+    deleteContact = (id) => {
+        const { contacts } = this.state;
+
+        const newContacts = contacts.filter(contact =>
+            contact.id !== id
+        )
+
+        this.setState({ contacts: newContacts })
+    }
+
     render() {
         const { contacts } = this.state;
         //console.log('triggered')
         return (
             <div>
-                <Contact name='vince' email='testemail@gmail.com' />
-                {contacts.map(contact => (
-                    <Contact name={contact.name} email={contact.email} phone={contact.phone} />
+
+                {contacts.map((contact, i) => (
+                    <Contact key={i} name={contact.name} email={contact.email} phone={contact.phone} deleteClickHandler={this.deleteContact.bind(this, contact.id)} />
                 ))}
             </div>
         )
