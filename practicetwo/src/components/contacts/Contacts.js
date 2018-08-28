@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Contact from './Contact'
 import Addcontact from './Addcontact'
+import { Consumer } from '../../context'
+
 
 export default class Contacts extends Component {
     constructor() {
@@ -46,14 +48,24 @@ export default class Contacts extends Component {
         const { contacts } = this.state;
         //console.log('triggered')
         return (
-            <div>
+            <Consumer>
+                <div>
+                    {value => {
+                        const { contacts } = value;
+                        return (
+                            <div>
+                                <p>yoooooo</p>
+                            </div>
+                        )
+                    }}
 
-                {contacts.map((contact, i) => (
-                    <Contact key={i} name={contact.name} email={contact.email} phone={contact.phone} deleteClickHandler={this.deleteContact.bind(this, contact.id)} />
-                ))}
 
+                    {/*{contacts.map((contact, i) => (
+                        <Contact key={i} name={contact.name} email={contact.email} phone={contact.phone} deleteClickHandler={this.deleteContact.bind(this, contact.id)} />
+                    ))}*/}
 
-            </div>
+                </div>
+            </Consumer>
         )
     }
 }

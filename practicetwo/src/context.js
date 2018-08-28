@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 const Context = React.createContext();
 
-export default class context extends Component {
+export default class Provider extends Component {
     state = {
         contacts: [
             {

@@ -1,19 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-const Context = React.createContext();
+export const Context = React.createContext({
+    themeColor: '#4F6D7A'
+});
 
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'DELETE_CONTACT':
-            return {
-                ...state,
-                contacts: state.contacts.filter(contact =>
-                    contact.id !== action.payload)
-            }
-    }
-}
-
-export class Provider extends Component {
+export default class Provider extends Component {
     state = {
         contacts: [
             {
@@ -35,18 +26,15 @@ export class Provider extends Component {
                 phone: "111-111-1111"
             }
         ],
-        dispatch: action =>
-            this.setState(state => reducer(state, action))
-
     }
 
     render() {
         return (
-            <Context.Provider value={this.state}>
+            <Context.Provider value='im the value!'>
                 {this.props.children}
             </Context.Provider>
         )
     }
 }
 
-export const Consumer = Context.Consumer;
+export const Consumer = Context.Consumer

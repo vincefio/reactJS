@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-
 import './App.css';
-import Header from './components/Header'
-import Contacts from './components/contacts/Contacts'
-import Addcontact from './components/contacts/Addcontact'
-import Provider from './context'
 
+import Header from './components/Header'
+import Provider from './context'
+import Contact from './components/Contact'
 
 class App extends Component {
   render() {
     return (
       <Provider>
         <div className="App">
-          <Header name="VinnyBoy Floyd" age="25" />
-          <Addcontact />
-          <Contacts />
+          <Header />
+          <Contact />
         </div>
       </Provider>
     );
