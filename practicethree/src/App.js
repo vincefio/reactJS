@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header'
 import Provider from './context'
 import Contacts from './components/Contacts'
+import AddContact from './components/AddContact'
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         <div className="App">
           <Header />
           <Contacts />
+          <AddContact />
         </div>
       </Provider>
     );

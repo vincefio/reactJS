@@ -4,8 +4,7 @@ import { Col, Card } from 'react-materialize'
 
 export default class Contact extends Component {
     onDeleteClick = (id, dispatch) => {
-        console.log('delete clicked id is ' + id)
-        console.log('dispatch ' + dispatch)
+        dispatch({ type: 'DELETE_CONTACT', payload: id })
     }
 
     render() {
