@@ -10,7 +10,7 @@ export default class AddContact extends Component {
         phone: ''
     }
 
-    onSubmit = (e, dispatch) => {
+    onSubmit = (dispatch, e) => {
         e.preventDefault();
 
         //create new person object
@@ -22,11 +22,15 @@ export default class AddContact extends Component {
             phone: this.state.phone
         }
 
+        console.log(newPerson)
+        console.log(dispatch)
+
         dispatch({ type: 'ADD_USER', payload: newPerson })
 
     }
 
     formInput = (e) => {
+        e.preventDefault()
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -39,7 +43,7 @@ export default class AddContact extends Component {
             <Consumer>
                 {value =>
                     <React.Fragment>
-                        <form onSubmit={this.onSubmit.bind(this, value.dispatch)}>
+                        <form onSubmit={this.onSubmit.bind(this, value.dispatch)} action="">
                             <Row>
                                 <Input name="firstName" s={12} label="First Name" onChange={this.formInput.bind(this)} />
                                 <Input name="lastName" s={12} label="Last Name" onChange={this.formInput} />
