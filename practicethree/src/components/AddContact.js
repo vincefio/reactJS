@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Input, Button, Icon } from 'react-materialize'
+import { Consumer } from '../context'
 const uuid = require('uuid')
 
 export default class AddContact extends Component {
@@ -9,7 +10,7 @@ export default class AddContact extends Component {
         phone: ''
     }
 
-    onSubmit = (e) => {
+    onSubmit = (e, dispatch) => {
         e.preventDefault();
 
         //create new person object
@@ -20,7 +21,9 @@ export default class AddContact extends Component {
             lastName: this.state.lastName,
             phone: this.state.phone
         }
-        console.log(newPerson)
+
+        dispatch({ type: 'ADD_USER', payload: newPerson })
+
     }
 
     formInput = (e) => {
@@ -33,16 +36,21 @@ export default class AddContact extends Component {
     render() {
 
         return (
-            <React.Fragment>
-                <form onSubmit={this.onSubmit}>
-                    <Row>
-                        <Input name="firstName" s={12} label="First Name" onChange={this.formInput.bind(this)} />
-                        <Input name="lastName" s={12} label="Last Name" onChange={this.formInput} />
-                        <Input name="phone" validate type='tel' label="Phone" s={12} onChange={this.formInput}><Icon>phone</Icon></Input>
-                        <Button type="submit" waves='light'>Submit</Button>
-                    </Row>
-                </form>
-            </React.Fragment>
+            <Consumer>
+                {value =>
+                    <React.Fragment>
+                        <form onSubmit={this.onSubmit.bind(this, value.dispatch)}>
+                            <Row>
+                                <Input name="firstName" s={12} label="First Name" onChange={this.formInput.bind(this)} />
+                                <Input name="lastName" s={12} label="Last Name" onChange={this.formInput} />
+                                <Input name="phone" validate type='tel' label="Phone" s={12} onChange={this.formInput}><Icon>phone</Icon></Input>
+                                <Button type="submit" waves='light'>Submit</Button>
+                            </Row>
+                        </form>
+                    </React.Fragment>
+                }
+
+            </Consumer>
         )
     }
 }
