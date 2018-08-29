@@ -10,7 +10,7 @@ export default class Contacts extends Component {
 
                     <React.Fragment>
                         {context.contacts.map(contact =>
-                            <Contact />
+                            <Contact id={contact.id} name={contact.name} phone={contact.phone} />
 
                         )}
                     </React.Fragment>

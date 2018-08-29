@@ -1,15 +1,28 @@
 import React, { Component } from 'react'
 import { Consumer } from '../context'
-//const Context = React.createContext();
+import { Col, Card } from 'react-materialize'
 
 export default class Contact extends Component {
+    onDeleteClick = (id, dispatch) => {
+        console.log('delete clicked id is ' + id)
+        console.log('dispatch ' + dispatch)
+    }
+
     render() {
         return (
             <div>
-                <h1>yo</h1>
+
                 <Consumer>
                     {context => (
-                        <p>im a contact</p>
+
+                        <Col s={7}>
+                            <Card className='blue-grey darken-1' textClassName='white-text' title={this.props.name}>
+                                {this.props.phone}
+
+                                <i className="fas fa-times" onClick={this.onDeleteClick.bind(this, this.props.id, context.dispatch)} style={{ cursor: 'pointer', float: 'right' }} />
+                            </Card>
+
+                        </Col>
                     )}
                 </Consumer>
             </div>
