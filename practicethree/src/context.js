@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 export const Context = React.createContext({
-    themeColor: '#4F6D7A'
 });
 
 export default class Provider extends Component {
@@ -30,11 +29,11 @@ export default class Provider extends Component {
 
     render() {
         return (
-            <Context.Provider value='im the value!'>
+            <Context.Provider value={this.state}>
                 {this.props.children}
             </Context.Provider>
         )
     }
 }
 
-export const Consumer = Context.Consumer
+export const Consumer = Context.Consumer;
