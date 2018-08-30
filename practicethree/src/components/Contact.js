@@ -9,22 +9,23 @@ export default class Contact extends Component {
 
     render() {
         return (
-            <div>
 
-                <Consumer>
-                    {context => (
 
-                        <Col s={7}>
-                            <Card className='blue-grey darken-1' textClassName='white-text' title={this.props.name}>
-                                {this.props.phone}
+            <Consumer>
+                {context => (
 
-                                <i className="fas fa-times" onClick={this.onDeleteClick.bind(this, this.props.id, context.dispatch)} style={{ cursor: 'pointer', float: 'right' }} />
-                            </Card>
+                    <Col s={7}>
+                        <Card className='blue-grey darken-1' textClassName='white-text' title={this.props.name}>
 
-                        </Col>
-                    )}
-                </Consumer>
-            </div>
+                            {this.props.phone}
+
+                            <i className="fas fa-times" onClick={this.onDeleteClick.bind(this, this.props.id, context.dispatch)} style={{ cursor: 'pointer', float: 'right' }} />
+                        </Card>
+
+                    </Col>
+                )}
+            </Consumer>
+
         )
     }
 }

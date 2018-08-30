@@ -17,13 +17,12 @@ export default class AddContact extends Component {
 
         const newPerson = {
             id: uuid(),
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
+            name: this.state.firstName,
+            email: this.state.lastName,
             phone: this.state.phone
         }
 
-        console.log(newPerson)
-        console.log(dispatch)
+
 
         dispatch({ type: 'ADD_USER', payload: newPerson })
 
